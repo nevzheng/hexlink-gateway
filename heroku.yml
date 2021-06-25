@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: krakend run -c krakend.json >/dev/null 2>&1
