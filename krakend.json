@@ -2,18 +2,10 @@
   "version": 2,
   "extra_config": {
     "github_com/devopsfaith/krakend-cors": {
-      "allow_origins": [
-        "*"
-      ],
-      "expose_headers": [
-        "Content-Length"
-      ],
+      "allow_origins": ["*"],
+      "expose_headers": ["Content-Length"],
       "max_age": "12h",
-      "allow_methods": [
-        "GET",
-        "HEAD",
-        "POST"
-      ]
+      "allow_methods": ["GET", "HEAD", "POST"]
     },
     "github_com/devopsfaith/krakend-gologging": {
       "level": "INFO",
@@ -48,9 +40,7 @@
           "sd": "static",
           "method": "POST",
           "extra_config": {},
-          "host": [
-            "https://hexlink.herokuapp.com"
-          ],
+          "host": ["https://hexlink.herokuapp.com"],
           "disable_host_sanitize": false
         }
       ]
@@ -60,9 +50,7 @@
       "method": "GET",
       "output_encoding": "json",
       "extra_config": {},
-      "querystring_params": [
-        "email"
-      ],
+      "querystring_params": ["email"],
       "backend": [
         {
           "url_pattern": "/users",
@@ -70,26 +58,10 @@
           "sd": "static",
           "method": "GET",
           "extra_config": {},
-          "host": [
-            "https://hexlink.herokuapp.com"
-          ],
+          "host": ["https://hexlink.herokuapp.com"],
           "disable_host_sanitize": false
         }
       ]
-    },
-    {
-      "endpoint": "/users/{userId}/redirects",
-      "method": "POST",
-      "output_encoding": "json",
-      "extra_config": {},
-      "backend": []
-    },
-    {
-      "endpoint": "/users/{userId}/redirects",
-      "method": "PUT",
-      "output_encoding": "json",
-      "extra_config": {},
-      "backend": []
     },
     {
       "endpoint": "/redirects",
@@ -103,9 +75,7 @@
           "sd": "static",
           "method": "GET",
           "extra_config": {},
-          "host": [
-            "https://hexlink.herokuapp.com"
-          ],
+          "host": ["https://hexlink.herokuapp.com"],
           "disable_host_sanitize": false
         }
       ]
