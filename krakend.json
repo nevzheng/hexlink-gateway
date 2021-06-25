@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "port": 80,
   "extra_config": {
     "github_com/devopsfaith/krakend-cors": {
       "allow_origins": ["*"],
