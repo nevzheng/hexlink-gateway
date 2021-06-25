@@ -1,0 +1,144 @@
+{
+  "version": 2,
+  "extra_config": {
+    "github_com/devopsfaith/krakend-cors": {
+      "allow_origins": [
+        "*"
+      ],
+      "expose_headers": [
+        "Content-Length"
+      ],
+      "max_age": "12h",
+      "allow_methods": [
+        "GET",
+        "HEAD",
+        "POST"
+      ]
+    },
+    "github_com/devopsfaith/krakend-gologging": {
+      "level": "INFO",
+      "prefix": "[KRAKEND]",
+      "syslog": false,
+      "stdout": true,
+      "format": "default"
+    },
+    "github_com/devopsfaith/krakend-metrics": {
+      "collection_time": "60s",
+      "proxy_disabled": false,
+      "router_disabled": false,
+      "backend_disabled": false,
+      "endpoint_disabled": false,
+      "listen_address": ":8090"
+    }
+  },
+  "timeout": "3000ms",
+  "cache_ttl": "300s",
+  "output_encoding": "json",
+  "name": "hexlink",
+  "endpoints": [
+    {
+      "endpoint": "/users",
+      "method": "POST",
+      "output_encoding": "json",
+      "extra_config": {},
+      "backend": [
+        {
+          "url_pattern": "/users",
+          "encoding": "json",
+          "sd": "static",
+          "method": "POST",
+          "extra_config": {},
+          "host": [
+            "https://hexlink.herokuapp.com"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
+    },
+    {
+      "endpoint": "/users",
+      "method": "GET",
+      "output_encoding": "json",
+      "extra_config": {},
+      "querystring_params": [
+        "email"
+      ],
+      "backend": [
+        {
+          "url_pattern": "/users",
+          "encoding": "json",
+          "sd": "static",
+          "method": "GET",
+          "extra_config": {},
+          "host": [
+            "https://hexlink.herokuapp.com"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
+    },
+    {
+      "endpoint": "/users/{userId}/redirects",
+      "method": "POST",
+      "output_encoding": "json",
+      "extra_config": {},
+      "backend": []
+    },
+    {
+      "endpoint": "/users/{userId}/redirects",
+      "method": "PUT",
+      "output_encoding": "json",
+      "extra_config": {},
+      "backend": []
+    },
+    {
+      "endpoint": "/redirects",
+      "method": "GET",
+      "output_encoding": "json",
+      "extra_config": {},
+      "backend": [
+        {
+          "url_pattern": "/redirects",
+          "encoding": "json",
+          "sd": "static",
+          "method": "GET",
+          "extra_config": {},
+          "host": [
+            "https://hexlink.herokuapp.com"
+          ],
+          "disable_host_sanitize": false
+        }
+      ]
+    },
+    {
+      "endpoint": "/{code}",
+      "method": "GET",
+      "output_encoding": "json",
+      "extra_config": {},
+      "backend": [
+        {
+          "url_pattern": "/{code}",
+          "encoding": "json",
+          "sd": "static",
+          "method": "GET",
+          "extra_config": {}
+        }
+      ]
+    },
+    {
+      "endpoint": "/redirects",
+      "method": "POST",
+      "output_encoding": "json",
+      "extra_config": {},
+      "backend": [
+        {
+          "url_pattern": "/redirects",
+          "encoding": "json",
+          "sd": "static",
+          "method": "POST",
+          "extra_config": {}
+        }
+      ]
+    }
+  ]
+}
