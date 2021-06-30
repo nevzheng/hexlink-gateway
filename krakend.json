@@ -102,6 +102,7 @@
       "method": "POST",
       "output_encoding": "json",
       "extra_config": {},
+      "querystring_params": ["url"],
       "backend": [
         {
           "url_pattern": "/redirects",
