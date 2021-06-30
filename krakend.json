@@ -91,7 +91,9 @@
           "encoding": "json",
           "sd": "static",
           "method": "GET",
-          "extra_config": {}
+          "extra_config": {},
+          "host": ["https://hexlink.herokuapp.com"],
+          "disable_host_sanitize": false
         }
       ]
     },
@@ -106,7 +108,9 @@
           "encoding": "json",
           "sd": "static",
           "method": "POST",
-          "extra_config": {}
+          "extra_config": {},
+          "host": ["https://hexlink.herokuapp.com"],
+          "disable_host_sanitize": false
         }
       ]
     }
